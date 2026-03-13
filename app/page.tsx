@@ -1,65 +1,116 @@
-import Image from "next/image";
-
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="min-h-screen bg-white text-gray-900">
+      {/* 首屏定位 */}
+      <section className="max-w-4xl mx-auto px-6 py-8">
+        <h1 className="text-5xl font-bold mb-2">韦伟豪</h1>
+        <p className="text-2xl font-semibold text-gray-800 mb-3">AI 测试工程师 / 测试开发工程师</p>
+        <p className="text-base text-gray-600 mb-4 leading-relaxed max-w-2xl">
+          测试工程师，聚焦 AI 辅助测试、Agent / RAG 应用测试与自动化实践。
+        </p>
+        <div className="flex gap-6 text-sm text-gray-600">
+          <a href="mailto:13265586937@163.com" className="hover:text-blue-600">13265586937@163.com</a>
+          <span>|</span>
+          <a href="https://github.com/test202005" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600">GitHub</a>
+          <span>|</span>
+          <a href="/resume.pdf" className="hover:text-blue-600">下载简历</a>
+        </div>
+      </section>
+
+      {/* 核心标签 */}
+      <section className="max-w-4xl mx-auto px-6 py-6 border-t border-gray-200">
+        <h2 className="text-2xl font-semibold mb-4">核心方向</h2>
+        <div className="flex flex-wrap gap-3">
+          <span className="px-4 py-2 bg-gray-100 rounded-full text-sm">AI 应用测试</span>
+          <span className="px-4 py-2 bg-gray-100 rounded-full text-sm">AI 辅助测试</span>
+          <span className="px-4 py-2 bg-gray-100 rounded-full text-sm">Agent / RAG / Copilot</span>
+          <span className="px-4 py-2 bg-gray-100 rounded-full text-sm">自动化测试</span>
+          <span className="px-4 py-2 bg-gray-100 rounded-full text-sm">Python / Playwright</span>
+          <span className="px-4 py-2 bg-gray-100 rounded-full text-sm">日志分析 / 回归验证</span>
+        </div>
+      </section>
+
+      {/* 核心项目 */}
+      <section className="max-w-4xl mx-auto px-6 py-6 border-t border-gray-200">
+        <h2 className="text-2xl font-semibold mb-5">核心项目</h2>
+
+        {/* 项目 1 */}
+        <div className="mb-8 pb-8 border-b border-gray-200">
+          <h3 className="text-xl font-semibold mb-2">AI WorkLog Agent</h3>
+          <p className="text-gray-600 mb-4">
+            面向团队内部使用的轻量级工作记录 Agent，支持碎片记录、事项确认与今日日报生成。
+          </p>
+          <div className="mb-4">
+            <span className="text-sm text-gray-500">关键词：</span>
+            <span className="text-sm text-gray-700">Agent / Tool Call / Structured Output</span>
+          </div>
+          <div className="text-sm text-gray-700 leading-relaxed">
+            <strong>我做了什么：</strong>参与核心流程梳理、行为边界约束与异常场景测试，重点验证输出真实性、稳定性与链路可追踪性。
+          </div>
+        </div>
+
+        {/* 项目 2 */}
+        <div className="mb-8 pb-8 border-b border-gray-200">
+          <h3 className="text-xl font-semibold mb-2">云境 XR 教学平台（AI Copilot）</h3>
+          <p className="text-gray-600 mb-4">
+            面向职业院校的 XR 教学平台，在编辑器中集成 AI Copilot，用于基于课程资料生成教学内容。
+          </p>
+          <div className="mb-4">
+            <span className="text-sm text-gray-500">关键词：</span>
+            <span className="text-sm text-gray-700">RAG / Trace / Bad Case</span>
+          </div>
+          <div className="text-sm text-gray-700 leading-relaxed">
+            <strong>我做了什么：</strong>负责平台核心业务测试，并围绕 AI Copilot 的 RAG 链路开展异常归因、问题复现与回归验证。
+          </div>
+        </div>
+
+        {/* 项目 3 */}
+        <div className="mb-8 pb-8 border-b border-gray-200">
+          <h3 className="text-xl font-semibold mb-2">米亚新零售平台</h3>
+          <p className="text-gray-600 mb-4">
+            面向跨境零售业务的一体化运营平台，覆盖商城、收银、营销、仓储与物流等核心模块。
+          </p>
+          <div className="mb-4">
+            <span className="text-sm text-gray-500">关键词：</span>
+            <span className="text-sm text-gray-700">业务测试 / 自动化 / 性能测试</span>
+          </div>
+          <div className="text-sm text-gray-700 leading-relaxed">
+            <strong>我做了什么：</strong>负责核心业务测试、回归自动化建设及性能验证，支持多版本持续迭代交付。
+          </div>
+        </div>
+      </section>
+
+      {/* 工作经历 */}
+      <section className="max-w-4xl mx-auto px-6 py-6 border-t border-gray-200">
+        <h2 className="text-2xl font-semibold mb-5">工作经历</h2>
+
+        <div className="mb-8">
+          <div className="flex justify-between items-start mb-2">
+            <h3 className="text-lg font-semibold">中电云计算技术有限公司</h3>
+            <span className="text-sm text-gray-500 whitespace-nowrap">2024/09 - 2025/12</span>
+          </div>
+          <p className="text-gray-600 mb-2">软件测试工程师</p>
+          <p className="text-sm text-gray-700 leading-relaxed">
+            负责 XR 教学平台、3D 编辑器及 AI 应用相关测试工作，参与需求分析、功能验证、回归测试及上线支持。
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="mb-8">
+          <div className="flex justify-between items-start mb-2">
+            <h3 className="text-lg font-semibold">深圳市欢乐树科技有限公司</h3>
+            <span className="text-sm text-gray-500 whitespace-nowrap">2021/06 - 2024/08</span>
+          </div>
+          <p className="text-gray-600 mb-2">测试组长</p>
+          <p className="text-sm text-gray-700 leading-relaxed">
+            负责新零售及平台类业务测试与版本交付，具备多端测试、缺陷管理与自动化推进经验。
+          </p>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* 页脚 */}
+      <footer className="max-w-4xl mx-auto px-6 py-6 border-t border-gray-200">
+        <p className="text-sm text-gray-400">© 2025 韦伟豪</p>
+      </footer>
+    </main>
   );
 }
