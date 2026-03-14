@@ -21,12 +21,12 @@ export default function HomePage() {
       <section className="max-w-4xl mx-auto px-6 py-6 border-t border-gray-200">
         <h2 className="text-2xl font-semibold mb-4">核心方向</h2>
         <div className="flex flex-wrap gap-2">
-          <span className="px-4 py-2 bg-gray-100 rounded-full text-sm">AI 应用测试</span>
-          <span className="px-4 py-2 bg-gray-100 rounded-full text-sm">AI 辅助测试</span>
+          <span className="px-4 py-2 bg-gray-100 rounded-full text-sm">AI系统测试</span>
           <span className="px-4 py-2 bg-gray-100 rounded-full text-sm">Agent / RAG / Copilot</span>
+          <span className="px-4 py-2 bg-gray-100 rounded-full text-sm">AI辅助测试</span>
           <span className="px-4 py-2 bg-gray-100 rounded-full text-sm">自动化测试</span>
+          <span className="px-4 py-2 bg-gray-100 rounded-full text-sm">系统稳定性 / 可靠性</span>
           <span className="px-4 py-2 bg-gray-100 rounded-full text-sm">Python / Playwright</span>
-          <span className="px-4 py-2 bg-gray-100 rounded-full text-sm">日志分析 / 回归验证</span>
         </div>
       </section>
 
@@ -38,15 +38,17 @@ export default function HomePage() {
         <div className="mb-8 p-5 bg-gray-50 rounded-lg border border-gray-100">
           <h3 className="text-xl font-semibold mb-2">AI WorkLog Agent</h3>
           <p className="text-gray-600 mb-3">
-            面向团队内部使用的轻量级工作记录 Agent，支持碎片记录、事项确认与今日日报生成。
+            面向团队内部使用的工作记录 Agent，支持碎片记录、事项确认与今日日报生成，通过 LLM + Tool Call 实现任务记录与日报自动生成。
           </p>
           <div className="flex flex-wrap gap-2 mb-3">
             <span className="px-3 py-1 bg-white rounded-full text-xs text-gray-600 border border-gray-200">Agent</span>
             <span className="px-3 py-1 bg-white rounded-full text-xs text-gray-600 border border-gray-200">Tool Call</span>
             <span className="px-3 py-1 bg-white rounded-full text-xs text-gray-600 border border-gray-200">Structured Output</span>
+            <span className="px-3 py-1 bg-white rounded-full text-xs text-gray-600 border border-gray-200">Stability</span>
+            <span className="px-3 py-1 bg-white rounded-full text-xs text-gray-600 border border-gray-200">Safety</span>
           </div>
           <div className="text-sm text-gray-700 leading-relaxed mb-3">
-            <strong>我做了什么：</strong>参与核心流程梳理、行为边界约束与异常场景测试，重点验证输出真实性、稳定性与链路可追踪性。
+            <strong>我做了什么：</strong>梳理 Agent 核心业务流程，围绕 Tool Call 触发规则、结构化输出稳定性与异常场景构建开展测试验证，并通过日志分析与链路回放（Replay）追踪 Tool Call 轨迹与状态流转，定位并发行为与系统稳定性问题。
           </div>
           <a href="/projects/ai-worklog-agent" className="inline-block text-sm text-blue-600 hover:underline">
             查看项目详情 →
@@ -63,9 +65,10 @@ export default function HomePage() {
             <span className="px-3 py-1 bg-white rounded-full text-xs text-gray-600 border border-gray-200">RAG</span>
             <span className="px-3 py-1 bg-white rounded-full text-xs text-gray-600 border border-gray-200">Trace</span>
             <span className="px-3 py-1 bg-white rounded-full text-xs text-gray-600 border border-gray-200">Bad Case</span>
+            <span className="px-3 py-1 bg-white rounded-full text-xs text-gray-600 border border-gray-200">稳定性验证</span>
           </div>
           <div className="text-sm text-gray-700 leading-relaxed mb-3">
-            <strong>我做了什么：</strong>负责平台核心业务测试，并围绕 AI Copilot 的 RAG 链路开展异常归因、问题复现与回归验证。
+            <strong>我做了什么：</strong>负责平台核心业务测试，并围绕 AI Copilot 的 RAG 链路开展异常归因、问题复现、稳定性验证与回归测试。
           </div>
           <a href="/projects/xr-ai-copilot" className="inline-block text-sm text-blue-600 hover:underline">
             查看项目详情 →

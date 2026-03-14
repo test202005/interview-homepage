@@ -15,7 +15,7 @@ export default function AIWorkLogAgentPage() {
           面向团队内部使用的轻量级工作记录 Agent，支持碎片记录、事项确认与今日日报生成。
         </p>
         <div className="bg-blue-50 border border-blue-100 rounded-lg p-4 text-sm text-gray-700">
-          <strong>项目定位：</strong>这个项目的重点不是"让 AI 写日报"，而是通过结构化记录与行为约束，让输出更真实、可控、可回放。
+          <strong>项目定位：</strong>这个项目的重点不是"让 AI 写日报"，而是验证 Agent 在真实业务场景中的行为约束与结构化输出稳定性，确保系统输出可控、可追踪、可复现。
         </div>
       </section>
 
@@ -35,6 +35,19 @@ export default function AIWorkLogAgentPage() {
             目标不是做复杂 Agent 平台，而是验证一个<strong>轻量、可控、真实可用的工作记录</strong>闭环。
           </p>
         </div>
+      </section>
+
+      {/* 系统结构 */}
+      <section className="max-w-4xl mx-auto px-6 py-8 border-b border-gray-200">
+        <h2 className="text-2xl font-semibold mb-4">系统流程</h2>
+        <div className="bg-gray-100 rounded-lg p-4 text-center">
+          <code className="text-lg font-mono text-gray-800">
+            User → LLM → Tool Call → Agent Loop → Structured Output
+          </code>
+        </div>
+        <p className="text-sm text-gray-600 mt-3">
+          Agent 系统整体执行链路
+        </p>
       </section>
 
       {/* 核心流程 */}
@@ -100,9 +113,9 @@ export default function AIWorkLogAgentPage() {
           <div className="flex gap-4">
             <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
             <div>
-              <h3 className="font-semibold text-gray-800 mb-2">行为边界约束</h3>
+              <h3 className="font-semibold text-gray-800 mb-2">行为边界约束（安全）</h3>
               <p className="text-sm text-gray-600">
-                约束 Agent 行为边界，限制系统仅执行记录、查询、确认、生成等预设动作，避免越界操作
+                通过 Prompt 规则约束 Agent 行为，仅允许执行记录、查询、确认、生成等预设动作，避免越权调用与潜在 Prompt Injection 风险
               </p>
             </div>
           </div>
@@ -112,7 +125,17 @@ export default function AIWorkLogAgentPage() {
             <div>
               <h3 className="font-semibold text-gray-800 mb-2">异常场景设计</h3>
               <p className="text-sm text-gray-600">
-                设计异常场景，验证结构缺失、内容失真、语义偏移、幻觉补全等风险场景的覆盖度
+                构建结构缺失，内容失真、语义偏移、幻觉补全等异常样本，验证系统在异常输入场景下的输出稳定性
+              </p>
+            </div>
+          </div>
+
+          <div className="flex gap-4">
+            <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+            <div>
+              <h3 className="font-semibold text-gray-800 mb-2">稳定性验证（性能）</h3>
+              <p className="text-sm text-gray-600">
+                通过多轮连续对话与重复记录场景验证 Agent 状态一致性，观察 Tool Call 在高频调用下的稳定性表现，并定位潜在并发问题
               </p>
             </div>
           </div>
@@ -122,7 +145,7 @@ export default function AIWorkLogAgentPage() {
             <div>
               <h3 className="font-semibold text-gray-800 mb-2">链路可追踪性</h3>
               <p className="text-sm text-gray-600">
-                增加关键确认闸门与日志回放能力，支持 Tool Call、状态流转与最终生成结果的完整追踪
+                增加关键确认节点与日志回放能力，支持 Tool Call、状态流转与最终输出结果的完整追踪
               </p>
             </div>
           </div>
@@ -140,19 +163,15 @@ export default function AIWorkLogAgentPage() {
             </div>
             <div className="flex gap-3">
               <span className="text-amber-600 font-semibold text-sm whitespace-nowrap">行为约束</span>
-              <p className="text-sm text-gray-700">Agent 是否只执行预设动作，避免越界执行</p>
+              <p className="text-sm text-gray-700">Agent 是否仅执行预设动作，避免越权行为</p>
             </div>
             <div className="flex gap-3">
-              <span className="text-amber-600 font-semibold text-sm whitespace-nowrap">结构完整</span>
-              <p className="text-sm text-gray-700">输出是否覆盖"今日完成 / 问题风险 / 明日计划"</p>
+              <span className="text-amber-600 font-semibold text-sm whitespace-nowrap">输出质量</span>
+              <p className="text-sm text-gray-700">生成内容是否结构完整、语义合理，避免幻觉与字段缺失</p>
             </div>
             <div className="flex gap-3">
-              <span className="text-amber-600 font-semibold text-sm whitespace-nowrap">内容真实</span>
-              <p className="text-sm text-gray-700">是否出现无依据补全、语义漂移、幻觉补全（Hallucination）</p>
-            </div>
-            <div className="flex gap-3">
-              <span className="text-amber-600 font-semibold text-sm whitespace-nowrap">链路追踪</span>
-              <p className="text-sm text-gray-700">能否通过日志回放追踪完整执行路径与问题根因</p>
+              <span className="text-amber-600 font-semibold text-sm whitespace-nowrap">系统稳定性</span>
+              <p className="text-sm text-gray-700">多轮对话与连续调用场景下系统是否保持状态一致</p>
             </div>
           </div>
         </div>
@@ -174,24 +193,24 @@ export default function AIWorkLogAgentPage() {
           </div>
 
           <div className="border-l-4 border-blue-600 pl-4">
-            <h3 className="font-semibold text-gray-800 mb-2">问题："能生成"不等于"可信"</h3>
+            <h3 className="font-semibold text-gray-800 mb-2">问题：并发场景下状态写入不稳定</h3>
             <p className="text-sm text-gray-600 mb-2">
-              系统能生成日报不代表输出质量可靠，需要验证结构完整性、内容真实性与异常样本覆盖
+              在并发压测中，系统出现 KeyError 异常，且 JSONL 文件被写入空行，说明状态层存在并发竞态与写入一致性问题
             </p>
             <div className="bg-gray-50 rounded px-4 py-2 text-sm">
               <span className="font-semibold text-gray-700">处理：</span>
-              <span className="text-gray-600">围绕结构完整性、内容真实性与异常样本进行专项验证</span>
+              <span className="text-gray-600">通过单线程对照组、并发压测与逐行校验 JSONL 文件，定位问题集中在状态层而非模型层，并将问题收敛到幂等性、上下文竞态与写入互斥三个方向</span>
             </div>
           </div>
 
           <div className="border-l-4 border-blue-600 pl-4">
-            <h3 className="font-semibold text-gray-800 mb-2">问题：异常时难以定位问题来源</h3>
+            <h3 className="font-semibold text-gray-800 mb-2">问题：接口存在未授权删除与调试信息暴露风险</h3>
             <p className="text-sm text-gray-600 mb-2">
-              当输出不符合预期时，难以快速定位是 Prompt 问题、Tool Call 问题还是模型输出问题
+              安全测试中发现删除接口缺少权限校验，任意用户在知道 fragment id 的情况下可直接删除数据；同时接口返回 debug 字段，暴露内部路径、工具调用与请求信息
             </p>
             <div className="bg-gray-50 rounded px-4 py-2 text-sm">
               <span className="font-semibold text-gray-700">处理：</span>
-              <span className="text-gray-600">增加关键确认闸门与日志回放能力，提升链路可追踪性与问题定位效率</span>
+              <span className="text-gray-600">将问题归类为访问控制缺失与信息泄露风险，后续通过增加用户认证、校验数据归属及关闭生产环境 debug 返回进行收口</span>
             </div>
           </div>
         </div>
@@ -202,7 +221,7 @@ export default function AIWorkLogAgentPage() {
         <h2 className="text-2xl font-semibold mb-6">项目收获 / 沉淀</h2>
         <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-6 border border-blue-100">
           <p className="text-gray-700 leading-relaxed">
-            这个项目让我对 Agent 系统测试的理解，从传统功能验证进一步扩展到<strong>行为边界约束、输出质量验证与链路可追踪性</strong>。也更明确 AI 系统测试不能只看"能不能跑"，还要看"是否可控、可复现、可回放"。
+            这个项目让我对 Agent 系统测试有了更清晰的理解。AI 系统测试不仅需要验证功能是否可用，更重要的是验证<strong>行为是否受控、输出是否稳定</strong>，以及系统是否具备<strong>可追踪与可复现</strong>能力。
           </p>
         </div>
       </section>
